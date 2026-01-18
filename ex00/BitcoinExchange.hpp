@@ -6,18 +6,21 @@
 #include <iostream>
 
 class btc {
-    public: 
-        btc();
-        btc(const btc &other);
-        btc operator=(const btc &other);
-        ~btc();
+	public: 
+		btc();
+		btc(const btc &other);
+		btc &operator=(const btc &other);
+		~btc();
 
-        bool loadDatabase(const std::string &filename);
+		bool loadDatabase(const std::string &filename);
+		void processInputFile(std::ifstream &input);
 
-        std::map<long, double> data;
+	private:
+		std::map<long, double> _rates;
 
-    private:
-        long convertDateToNumber(const std::string &date);
+		long convertDateToNumber(const std::string &date);
+		bool isValidDate(std::string dateStr);
+		bool isValidValue(const std::string valueStr, double &value);
 };
 
 #endif

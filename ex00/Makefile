@@ -1,6 +1,6 @@
 NAME = btc
 
-SRC = main.cpp
+SRC = main.cpp BitcoinExchange.cpp
 CXX = c++
 
 OBJDIR = objs
